@@ -1,0 +1,961 @@
+<html>
+<head>
+<title>SC4TerraFormer ReadMe</title>
+<style  type="text/css">
+<!--
+h2
+{
+color:purple;
+font-size:18px;
+}
+
+h1
+{
+color:blue;
+font-size:25px;
+font-variant:small-caps;
+}
+
+body
+{
+font-family:Arial, sans-serif;
+font-size:10x;
+background-position:10% 10%;
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-color:#ABCDEF;
+}
+
+.title
+{
+font-size:30px;
+font-weight:bold;
+font-variant:small-caps;
+}
+
+.desc
+{
+font-size:14px;
+font-style:oblique;
+}
+
+.warning
+{
+font-size:30px;
+color:#ff0000;
+text-transform:uppercase;
+font-weight:bold;
+}
+
+.warning_small
+{
+font-size:17px;
+color:#ff0000;
+text-transform:uppercase;
+font-weight:bold;
+}
+
+.answer
+{
+margin-left:5px;
+font-weight:normal;
+}
+
+.code
+{
+font-family:monospace;
+width:100%;
+margin-left:30px;
+font-size:9pt;
+}
+
+.note
+{
+font-size:10px;
+}
+
+.color_code_instructions
+{
+margin-left:20px;
+margin-right:50px;
+}
+-->
+</style>
+</head>
+<body>
+<center>
+<div style="position:absolute;top:10px;left:15;width:100%">
+<font class=title>SC4TerraFormer</font>
+<br>
+<font class=desc>A tool for regional terraforming</font>
+</div>
+<img src="sc4.jpg" border=0 width=777 height=596>
+<br>
+<div style="position:absolute;top:530px;left:15;width:100%">
+Version <b>v1.0c</b><br>
+<font class=warning>This is the Final Version</font>
+</div>
+</center>
+<hr>
+<h1>Table of Contents</h1>
+<table style="margin-left:15px;">
+<tr align=left><td><a href=#req>System Requirements and Useful Links</a></td></tr>
+<tr align=left><td><a href=#features>Features</a></td></tr>
+<tr align=left><td><a href=#bugs>Known bugs</a></td></tr>
+<tr align=left><td><a href=#facts>Quick Facts</a></td></tr>
+<tr align=left><td><a href=#todo>ToDo and Wish Lists</a></td></tr>
+<tr align=left><td><a href=#modding>Modding textures</a></td></tr>
+<tr align=left><td><a href=#colors>Changing colors</a></td></tr>
+<tr align=left><td><a href=#universal>Adding universal tools</a></td></tr>
+<tr align=left><td><a href=#faqs>FAQs</a></td></tr>
+<tr align=left><td><a href=#changes>Changelog</a></td></tr>
+<tr align=left><td><a href=#credits>Credits</a></td></tr>
+</table>
+<hr>
+<a name="req"/>
+<h1>System Requirements and Useful Links</h1>
+<font class=warning_small>This program is only compatible with Rush Hour or SimCity4 Deluxe</font>
+<br>
+<br>
+<font class=warning_small>Backup your cities before you begin.
+<br>
+&nbsp;I'm not responsible if something goes wrong.</font>
+<br>
+<br>
+<font class=warning_small>This program requires the April 2006 version of DirectX9.0c</font>
+<br>
+&nbsp;It can be found <a href="http://www.microsoft.com/windows/directx/default.mspx" target="_blank">here</a> or <a href="http://www.softwarepatch.com/windows/directx.html" target="_blank">here</a>
+<br>
+<br>
+You will need to run the DXSetup.exe once you've downloaded it
+<br>
+You will need to update if you see a <b>DirectX can't be loaded</b> message box
+<br>
+To be sure you have the right version of DirectX, check that <b>d3dx9_30.dll</b> is located in <b>c:\windows\system32</b>
+<br>
+<br>
+Some users may need the <b>MSCVP71.DLL</b>. It can be found <a href="http://www.dll-files.com/dllindex/dll-files.shtml?msvcp71" target="_blank">here</a>
+<br>
+Visit the <a href="http://www.simtropolis.com/forum/messageview.cfm?catid=40&threadid=76881" target="_blank">support thread</a> for suggestions, bugs, and support
+<br>
+A mini tutorial can be found <a href="http://www.simtropolis.com/forum/messageview.cfm?catid=40&threadid=76881&STARTPAGE=8#794532" target="_blank">here</a>
+<br>
+The following sites provide information for picking colors for HTML color codes as used in the colorizaton package:
+<br>
+<ul>
+<li>
+<a href="http://www.siteprocentral.com/html_color_code.html" target="_blank">http://www.siteprocentral.com/html_color_code.html</a>
+<li>
+<a href="http://webmonkey.com/webmonkey/reference/color_codes/" target="_blank">http://webmonkey.com/webmonkey/reference/color_codes/</a>
+<li>
+<a href="http://www.asahi-net.or.jp/~FX6M-FJMY/java09e.html" target="_blank">http://www.asahi-net.or.jp/~FX6M-FJMY/java09e.html</a>
+</ul>
+The following sites provide free version of some landscape generators:
+<ul>
+<li>
+<a href="http://www.planetside.co.uk/" target="_blank">Terragen</a>
+<li>
+<a href="http://www.world-machine.com/" target="_blank">World Machine</a>
+<li>
+<a href="http://www.e-onsoftware.com/" target="_blank">Vue d'esprit</a>
+</ul>
+<hr>
+this is a list of required dlls that need to be on your system and that I can't include in the installer due to licencing terms:<br>
+<ul>
+ <li>OLEAUT32.dll
+ <li>USER32.dll
+ <li>SHELL32.dll
+ <li>ole32.dll
+ <li>WINMM.dll
+ <li>WSOCK32.dll
+ <li>COMCTL32.dll
+ <li>ADVAPI32.dll
+ <li>msvcrt.dll
+ <li>WS2_32.dll
+ <li>GDI32.dll
+ <li>KERNEL32.dll
+ <li>MSVCP71.dll
+ <li>comdlg32.dll
+ <li>RPCRT4.dll
+</ul>
+they should be typically find in your <b>C:\WINDOWS\system32\</b>
+<hr>
+<a name="features"/
+<H1>Features</H1>
+<ul>
+<li>Unlimited region size ( provided that you have a lot of RAM and a very good GFX card )
+<li>Region creation
+<li>Region loading
+<li>Region edition 
+<li>SC4 Region view updating
+<li>Full 3D, with 4 DOF navigation
+<li>Custom coloration
+<li>Global and local terraforming
+<li>Custom tools
+<li>All SC4 Terraforming tools available
+<li>Already built cities protection
+<li>Config.bmp checking
+<li>Overview aka radar like view
+<li>3D & 2D screenshots
+<li>Export of full range ( 0-6000m ) elevation within 0.1m precision in SC4M format and 16bit greyscale png format
+<li>Import of SC4M and 16bit greyscale png
+<li>Import of greyscale or RGB picture ( 8bit channel PNG, BMP, JPEG )
+<li>Import allow resizing/fitting of the image to match the region size ( for image file only )
+<li>Import of TER files ( from terragen or worldmachine )
+<li>External tool to generate image from contour lines images ( ConvertIsoclines.exe )
+</ul>
+<hr>
+<a name="bugs"/
+<H1>Known bugs</H1>
+<ul>
+<li>Changing desktop resolution, or bitdepth while SC4Terraformer is running will crash it
+<li>Some programs may use DirectX exclusively, preventing SC4Terraformer to run 
+</ul>
+<hr>
+<a name="facts"/>
+<H1>Quick Facts</H1>
+<H2>Navigations and Shortcuts</H2>
+<ul>
+<li>Use the <b>ARROW KEYS</b> to move around 
+<li>Use the <b>CONTROL KEY</b> and the <b>ARROW KEYS</b> to rotate the camera
+<li>Using the <b>Mouse wheel</b> will raise or lower the camera
+<li>Pressing <b>+</b> or <b>-</b> will raise or lower the camera
+<li>Pressing <b>SHIFT</b> key when moving or rotating will slow the displacment
+<li>If you  check the <b>Edge scrolling</b>, moving the mouse pointer near the edge will scroll
+<li>Press <b>G</b> will turn the grid on/off
+<li>Press <b>CTRL-S</b> to save
+<li>Press <b>CTRL-SHIFT-S</b> to take a picture
+<li>Press <b>CTRL-O</b> to open a region
+<li>Press <b>CTRL-N</b> to create a new region
+<li>Press <b>ALT-F4</b> to quit
+</ul>
+<H2>Global Tools</h2>
+Global tools are those that affect the whole region
+<br>
+<ul>
+<li><b>Equalize</b> - smooth the whole region
+<li><b>Raise terran</b> - you will be prompted for an amount to raise the whole region
+<li><b>Lower terran</b> - you will be prompted for an amount to lower the whole region
+<li><b>Erode terran</b> - this will run a hydrologic water erosion simulation an the whole region
+<li><b>Erode terran bis</b> - this will run a hydrologic water erosion simulation an the whole region, with different parameters than the previous one
+<li><b>Import image</b> - same as the CTRL-ALT-SHIFT-R in SC4. you will be prompted for the waterlevel and for the scaling factor. You can also import SC4M files
+<li><b>Export</b> - this will export the whole elevation range (in opposition to a jpeg which can only handle 256 levels) with a 10cm resolution
+</ul>
+<H2>Zone Tools</H2>
+Zone tools are terraforming tools that you can control with your mouse. Only the region under the cursor is affected while clicking.
+<br>
+<ul>
+<li>You can change the shape of the cursor (square or round)
+<li>You can change the radius of the cursor and the strength of the tool
+<li>You can limit the change in elevation of the tool by using the min Height and max Height sliders
+<li><b>Flatten</b> - this will flatten the area under the cursor to the height of the red pixel
+<li><b>Draw</b> - this will flatten the area under the cursor to the height specified in the text box.
+<br>
+<b>YOU MUST PRESS ENTER FOR A CHANGE TO TAKE EFFECT</b>
+<li><b>Smooth</b> - this will smooth the area under the cursor
+<li><b>Rough</b> - this will exagerate altitude differences in the area under the cursor
+<li><b>Make hills</b> - this will make hills :), no difference between a square and a rounded shape
+<li><b>Make mountains</b> - this will make some mountains
+<li><b>Make steep hills</b> - this will make some steep hills
+<li><b>Make valley</b> - this will carve the landscape
+<li><b>Make valley(new)</b> - this will carve the landscape with a different shape
+<li><b>Make harbor</b> - this will flatten the land 0.5m above the seaLevel so you can easily plop waterfront when in SC4
+<li><b>Water erode</b> - this will run the hydrologic simulation on the area under the cursor
+<li><b>Water erode enhanced</b> - this will run the hydrologic simulation on the area under the cursor with different parameters
+<li><b>Talus erosion</b> - this will run a termal erosion simulation on the area under the cursor
+</ul>
+<H2>Universal Tools</H2>
+Universal tools are based on a revolving curve that you can define in the file datas/tools.ini<br>
+More informations available in the <a href="#universal">Adding tools section</a>
+<br>
+<H2>Brushes Tools</H2>
+Brushes tools are based on grescale images<br>
+The default tools availables are based on replication of the SC4 ingame terraforming tools<br>
+You can add brush tool by modifying the <b>Brushes.py</b> file. See the information in this file to know how to add/modify brushes tools
+<hr>
+<a name="modding"/>
+<H2>Modding textures</H2>
+<p class=color_code_instructions>
+Here is a list of textures you can change to make SC4Terraform pleasant to you eyes.
+<ul>
+<li><b>Water.bmp</b>, is the translucent texture used for water
+<li><b>Wired.bmp</b>, is the texture used for showing grid, if you change it, leave a 2 pixel black border or the grid won't show
+<li><b>Detail.bmp</b>, is the noise texture applied to the ground
+</ul>
+<p class=color_code_instructions>
+If you are familiar with <b>HLSL</b> you can tweak the 3 <b>.fx</b> files. If you are familiar then you don't need information on what to do with them. If you don't know what to do with them, then you're obviously not familiar, so I'd advise you to not touch them.<br>
+</p>
+<a name="colors"/>
+<H2>Changing Colors</H2>
+<p class=color_code_instructions>
+The default coloration is stored in a file called <b>basicColors.ini</b> in the program directory, which is loaded at run time. You can make your own coloration by copying the basicColors.ini to another file and editing it in a text editor such as NOTEPAD. In SC4Terraformer you can load the new coloration file by clicking the 'Change Colors' button and selecting the new coloration file.
+<br>
+<br>
+The guide below explains the contents of the coloration file and how to edit it:
+<br>
+<br>
+The file contains 3 sections:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;background
+<br>&nbsp;&nbsp;&nbsp;&nbsp;water
+<br>&nbsp;&nbsp;&nbsp;&nbsp;land
+<br>
+<br>
+"background" is a single color and does not vary. You may set it to any color that pleases you. The DEFAULT is color = FF2F88 (recall that the HTML color codes are found from the reference web sites. Since the presentation is done in HTML <b>you should LOOK UP the color code from one of the <a href="#req">reference sites</a></b>) For those who are interested, this last number is a HEXIDECIMAL TRIPLET representing the RGB VALUES for the color selected.
+<br>
+<br>
+"water" and "land" both SET THE COLOR of SPECIFIC altitudes above or below water level.
+<br>
+<br>
+Numbers IN BETWEEN these depths are INTERPOLATED (that is shaded in a smooth gradient) between the colors.
+<br>
+<br>
+Looking at an entry, you can see this is done with number pairs such as "200 = 00084A"
+<br>
+<br>
+This means that at 200 meters BELOW water level the color is 00084A. <b>NOTE: Do not add a negative sign to the water.. it is implied to be below water.</b> You will see that the default for water is only shaded from 0 to 200 meters below water.. all deeper water is the same color (00084A). WHY? because the color at 200 AND at 6000 are BOTH THE SAME, therefore interpolation gives the same color regardless of depth. You could change this of course if you wished.
+<br>
+<br>
+"land" is done in the same way as "water" with pairs of numbers such as "100 = 00CE00". This means that at the height of 100 meters, the color will be "00CE00" (again recall, you have to look these up at a reference site as given above). Each added pair of numbers set the color at added heigths. The next color is "200 = 189C18". This means that at height 200, the color will be 189C18. From 100 to 200 colors are INTERPOLATED again smoothly across the range of "in between" colors.
+<br>
+<br>
+By changing these "color points" you can affect exactly the color-to-height-mapping that is pleasing to you. This also allows you to modify the color to nicely represent your own personal terrain habits. If you have lots of altitude across your region, you can choose a full range of colors, but if your maps are rarely more than say 1000 meters across a region, you may choose to have much finer color ranges to see your variations more easily.
+<br>
+<br>
+For help on choosing HTML color codes, go <a href="#req">here</a>.
+</p>
+<a name="universal"/>
+<H2>Adding universal tools</H2>
+<p class=color_code_instructions style="margin-bottom:5px;">
+With <b>v.08c</b> comes a way for you to create your own tools. These tools can be found in the Universal Tools section of the toolbar.<br>
+<br>
+Tools are shapes defined by a spline (a curve that passes through predefined points).<br>
+The shape is revolved around the center of the tool (ie the red point)<br>
+The curve is defined from the center to the outer circumference, with a height modification to apply to the terrain<br>
+The curve is defined in the interval [0,1], where 0 represents the red point (center), and 1 means the outer radius of the tool<br>
+In the file <b>tools.ini</b>, you define a tool by creating a new section then you define some control points for where the curve should pass through
+</p>
+<pre style="margin-left:30px;margin-top:3px;margin-bottom:5px;">
+[Hill]
+0=1
+0.7=0.9
+1=0
+</pre>
+<p class=color_code_instructions style="margin-top:3px;">
+Here we have defined a tool that will cause elevation changes at the distances 0 (0%), 0.7 (70%), and 1 (100%) from the center to the radius.<br>
+So at center (0%) it will raise the terrain 1m (1), at 70% of the radius it will raise the terrain .9m (0.9) and at 100% of the radius there will be no change (0). This tool will make a hill<br>
+To avoid perfect symmetry you can also add the following options:<br>
+<ul style="margin-top:3px;margin-bottom:3px;margin-left:50px;">
+<li>perturbHeight = min,max &nbsp;&nbsp;<i style="font-family:Courier New;font-size:9pt;">Specifies a random variation of a height of any point to avoid symmetry. The Min and Max values determine a range for the random values.</i>
+<li>perturbRadius = min,max &nbsp;&nbsp;<i style="font-family:Courier New;font-size:9pt;">Specifies a random variation of a point from the center to avoid symmetry. The Min and Max values determine a range for the random values.</i>
+<li>scaleFactor = radius &nbsp;&nbsp;<i style="font-family:Courier New;font-size:9pt;">Specifies that the bigger the tool, the greater the change in elevation</i>
+</ul>
+<p class=color_code_instructions style="margin-top:3px;">
+<br>
+Wow, a wealth of information there. So let's go over it now to make sure we didn't miss anything<br>
+<table width=80% border=0 valign=top>
+<tr valign=top>
+<td><b style="font-size:9pt;">[Hill]</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">The name of the new tool</i>
+<tr valign=top>
+<td><b style="font-size:9pt;">0=1</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">At 0% distance from radius, height will change by 1m</i>
+<tr valign=top>
+<td><b style="font-size:9pt;">.7=.9</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">At 70% distance from radius, height will change by 0.9m. NOTE: Positive values are an increase in height, and negative values are a decrease in height.</i>
+<tr valign=top>
+<td><b style="font-size:9pt;">1=0</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">At 100% distance from radius, height will change by 0m.</i>
+</table>
+<table width=80% border=0 valign=top>
+<tr valign=top>
+<td><b style="font-size:9pt;">perturbHeight=Min,Max</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">Specifies Minimum and Maximum values for a random multiplier that changes height values to avoid perfect symmetry</i>
+<tr valign=top>
+<td><b style="font-size:9pt;">perturbRadius=Min,Max</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">Specifies Minimum and Maximum values for a random multiplier that changes distance from radius values to avoid perfect symmetry</i>
+<tr valign=top>
+<td><b style="font-size:9pt;">scaleFactor=radius</b><td>-<td><i style="font-family:Courier New;font-size:9pt;">Specifies that the tool's intensity will vary with it's radius</i>
+</table>
+<br>
+As you might be able to tell, it'll take a couple of trial and errors to get this right. Just try something and see what it does. Experiment.
+<br>
+<br>
+For your benefit, here is a full example, it creates a kind of V shape (hence the name Canyon) with a small amount of raise at the border to make a smooth hill at the top of the canyon<br>
+The strength will be a function of the radius, and the tool is perturbed in both height and radius<br>
+<pre style="margin-left:25px;margin-top:7px;">
+[Canyon]
+0 = -2
+0.5 = -1.9
+0.8 = -0.9
+0.85 = 0.1
+0.9 = 0.15
+0.95 = 0
+1 = 0
+perturbHeight = .75,1
+perturbRadius = .85,1.15
+scaleFactor = radius
+</pre>
+<hr>
+<a name="todo"/>
+<H1>TODO and WISH Lists</H1>
+In no particular order. Indeed, TODO items will certainly be done before WISH items<br>
+I do not make any particular suggestions, but a lot of them are from supporters on simtropolis
+<table>
+<tr>
+<td valign=Top>
+<table border=1>
+<tr bgcolor=#ABEFAB><td>TODO</td></tr>
+<tr><td>
+<ul style="margin-left:20px;">
+<li>Clone tool
+</ul>
+</td></tr>
+</table>
+</td>
+<td width="10%"></td>
+<td valign=Top>
+<table border=1>
+<tr><td bgcolor=#ABEFAB>WISH</td></tr>
+<tr><td>
+<ul style="margin-left:20px;">
+<li><s>16 bpp grayscale png export/import</s>
+<li>Preset camera
+<li>Isometric camera
+<li>Sunken tool
+<li>Path tool
+<li>River bed tool
+<li>Slope tool
+<li><s>Crater tool</s>
+<li><s>Cliff tool</s>
+<li><s>Better mountain tool</s>
+<li>Open source the code
+<li>Reconfigure config.bmp
+<li>DEM import
+<li><s>Export 2D Shaded image</s>
+<li>Trees ???
+<li><s>Create region option</s>
+<li>Export region view as Region Census
+<li><s>Overhead mode</s>
+<li>Config bmp maker/painter
+</ul>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</center>
+<hr>
+<a name="faqs"/>
+<H1>FAQs</H2>
+<ul style="font-weight:bold">
+<li><font color=purple>This sucks, everything is lagging as hell</font>
+<ol class=answer>SC4Terraformer is quite CPU and GFX intensive</ol>
+<li><font color=purple>Ok this lag, how can I speed up a bit?</font>
+<ol class=answer>Turn off water rendering, turn off shadows, turn on show city borders, unlock any cities (<b>relock them before saving</b>), move the camera so it looks down. In short, the less you see, the faster it will be</ol>
+<li><font color=purple>What is the SC4M file for?</font>
+<ol class=answer>I hope that one day, we can exchange region with full elevation range using this file format.</ol>
+<li><font color=purple>How can I prevent the program to pop the readme everytime I run it?</font>
+<ol class=answer>Rename the Readme.html to another name</ol>
+<li><font color=purple>Why is the draw tool drawing at the same height as harbor tool even if I put 1000m in the height?</font>
+<ol class=answer>You should press <b>Enter</b> after entering the desired height. The draw height is reflected in the status bar</ol>
+<li><font color=purple>How do I change the background color and/or the terrain colors?</font>
+<ol class=answer>
+Instructions can be found <a href="#colors">here</a>.
+</ol>
+<li><font color=purple>Why do I see borders on the terrain in the region view in SC4 even if I uncheck borders?</font>
+<ol class=answer>
+You have saved your region in the Terraformer while the 'show city border' option is checked. Try a resave with city borders off.
+</ol>
+<li><font color=purple>I have a big region, but I want to crop it to make a smaller one. Is it possible?</font>
+<ol class=answer>
+You can export your region as 16bit greyscale png, then using your image editor, you can crop the interesting part, and reimport the new 16bit png in a new region.<br>
+BTW, you can with the same technique arrange multiple regions.
+</ol>
+<li><font color=purple>What is the mean of parameters for the Import Dialog?</font>
+<ol class=answer>
+They are parameters to convert from greyscale to SC4 units ( ie meters )
+<ul>
+<li>The scale factor is how much 1 unit in the greyscale image represent in SC4, you can enter a number or choose from the predefined one
+</ul>
+</ol>
+<li><font color=purple>So why I if change the parameters and load a 16bit png or a SC4M or a TER the region is still the same ?</font>
+<ol class=answer>
+Thoses parameters are only used when you import a 8bit greyscale or RGB picture
+</ol>
+<li><font color=purple>Why SC4TF ask me for an HTML when I export to SC4M?</font>
+<ol class=answer>
+This html ( the source code of it ) will be included into the SC4M, as the config.bmp and will be displayed on import.
+</ol> 
+</ul>
+<hr>
+<a name="changes"/>
+<H1>Changelog</H1>
+<table width="100%" style="width:100%">
+
+<tr><td bgcolor="#FEDCBA">v1.0c</td></tr>
+<tr>
+<td>
+<ul>
+<li>Removed the water level dialog and tool
+<li>Generic exception handling in case of error while loading a region ( mainly RAM issues )
+<li>Windows positionning persitent accross multiple runs
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v1.0b</td></tr>
+<tr>
+<td>
+<ul>
+<li>SC4M file format enhanced to incorporate the config.bmp and html notes from the author
+<li>Create region dialog can now accept a new SC4M instead of the width by height values
+<li>On creation or import of a SC4M , the author notes are displayed
+<li>Bug fixes with readonly/only save modified related issues
+<li>On import, the min height values has been removed ( useless )
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v1.0a</td></tr>
+<tr>
+<td>
+<ul>
+<li>Supporting .TER file format importing
+<li>Sliders of min/max height inverted
+<li>Readonly files has been handled
+<li>Only saving modifying cities
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.09c</td></tr>
+<tr>
+<td>
+<ul>
+<li>Overview window can be close/reopen
+<li>Better designed Create region dialog
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.09b</td></tr>
+<tr>
+<td>
+<ul>
+<li>Genesus.SC4M has been raised to look good with a 250m sea level
+<li>Genesus.png has been generated ( 16 bit greyscale png )
+<li>Overview aka 'radar view', clic in it to move the camera to the point
+<li>You can save the overview image
+<li>Brushes tools like SC4 Ingame tools
+<ul>
+<li>All in game tools
+</ul>
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.09</td></tr>
+<tr>
+<td>
+<ul>
+<li>Brushes tools like SC4 Ingame tools
+<ul>
+<li>God mode Moutains
+<li>Craters
+</ul>
+<li>Export/Import 16 bit grayscale png
+</ul>
+</td>
+</tr>
+
+<tr><td><hr></td></tr>
+
+<tr><td bgcolor="#FEDCBA">v.08c</td></tr>
+<tr>
+<td>
+<ul>
+<li>Added a min and max limits slider that applies to zone and universal tools
+<li>The sliders toolbar is now floating, you can move it
+<li>Fixed Talus Erosion bug
+<li>Added universal tool
+<li>Change GUI for tool strength and radius slider
+<li>Rendering method changed (may be faster on slower computer) 
+<li>Added some message when updating region view in debug console
+<li>When quitting, added an 'Are you sure?' dialog if already saved
+<li>When closing SC4TerraFormer with the "x" button, the messages will now pop up (like using Quit in the menu)
+<li>City border rendering better
+<li>Canyon tool changed
+<li>Moutains New tool renamed to Steep Hill
+<li>Montains Classic tool removed
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.08b</td></tr>
+<tr>
+<td>
+<ul>
+<li>Less memory usage again, with version 0.07c a standard region (ie config 16x16) took 150 Megs, now it only took 100 Megs 
+<li>Coloration changed to reduce memory 
+<li>Snapshot will be saved in the correct format 
+<li>Canyon tool added 
+<li>Mountain tool tweaked 
+<li>Talus erosion tool added 
+<li>Strength of tools now range from 1 to 20, and is exponential 
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.08</td></tr>
+<tr>
+<td>
+<ul>
+<li>Change toolbar, only one bloc can be open at one time
+<li>Can choose from different colors scheme
+<li>Screen shot option, CTRL-SHIFT-S, can save as PNG, BMP or JPG
+<li>Rework a litte the import dialog, so now you can also choose PNG.
+<li>background color modifiable in basicColors.ini
+<li>Make mountain new tool changed
+<li>A new erode zone tool added
+<li>Icon correctly displayed
+</ul>
+</td>
+</tr>
+<tr><td><hr></td></tr>
+<tr><td bgcolor="#FEDCBA">v.07c</td></tr>
+<tr>
+<td>
+<ul>
+<li>Open region option
+<li>Add a new valley tool ( much lighter )
+<li>Water rendering in region view updated
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.07b</td></tr>
+<tr>
+<td>
+<ul>
+<li>One level undo
+<li>Customization of terrain colorization
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.07</td></tr>
+<tr>
+<td>
+<ul>
+<li>Program now exit properly when config.bmp is not correct
+<li>Less memory usage
+<li>Mouse freezing when camera too high is fixed
+<li>Region view thumbnails updated
+<li>Isoclines tool with user interface
+</ul>
+</td>
+</tr>
+<tr><td><hr></td></tr>
+<tr><td bgcolor="#FEDCBA">v.06g</td></tr>
+<tr>
+<td>
+<ul>
+<li>Bug on savegame when going form SC4Terraformer to SC4 again and again
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.06f</td></tr>
+<tr>
+<td>
+<ul>
+<li>Bug on savegame when going form SC4Terraformer to SC4
+<li><i>Global tools</i> toolbar collapsed at launch time so everyone can see all tools
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.06e</td></tr>
+<tr>
+<td>
+<ul>
+<li>Bug fix for city name using special characters (still not correctly displayed but won't crash anymore )
+<li>ConvertIsoLine.exe for testing the isoline idea with updated algo
+<li>Added information in the status bar
+<li>Test for the show city border render, now you can see the terrain under
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.06d</td></tr>
+<tr>
+<td>
+<ul>
+<li>Config.bmp can be palettized ( thanks to Swamper77 )
+<li>ConvertIsoLine.exe for testing the isocline idea
+</ul>
+<span class=code>
+To test it:
+<br>
+&nbsp;&nbsp;Run a console window (start->run->cmd.exe)
+<br>
+&nbsp;&nbsp;Go to the installed folder (C:\program files\SC4Terraformer by default)
+<br>
+&nbsp;&nbsp;At the prompt, type <b>convertisoline.exe iso2.bmp</b> or any image that is like iso2.bmp
+<br>
+&nbsp;&nbsp;It will run output some intrigated messages, and on finish will try to show you the result
+<br>
+&nbsp;&nbsp;The result is saved as temp.bmp in the installation folder
+<br>
+&nbsp;&nbsp;You can then import this image in SC4Terraformer or directly in SC4.
+<br>
+&nbsp;&nbsp;The iso2.bmp is made for 8x6 region
+<br>
+&nbsp;&nbsp;To avoid any weird feedback, this is the first run and still need work, mainly isoclines need to be closed or touching border, if you have hole in isocline result maybe strange
+<br>
+&nbsp;&nbsp;You also may need to do some post effect in any image editor
+<br>
+</span>
+<br>
+<br>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.06c</td></tr>
+<tr>
+<td>
+<ul>
+<li>icon by <b>trueplaya8892</b>
+<li>HTML readme
+<li>The readme open in your web browser when starting. If you have read it and want to get rid of it, rename the readme.html to something else
+<li>Freezing bug not there anymore ? ( I try again )
+<li>Less lag 
+<li>Water rendering option
+<li>Show city border option
+<li>Updated to DX9.0c April 2006 version
+<li>Two executables, one with console (debug version), one without
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.06b</td></tr>
+<tr>
+<td>
+<ul>
+<li>If DirectX is not present or not the correct version, a message box will appear
+<li>Freezing bug not there anymore ? ( I try )
+<li>Shadows computation check box ( prince_of_sims and many others )
+<li>Some text on dialogs have been corrected ( Shadow_assassin )
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.06</td></tr>
+<tr>
+<td>
+<ul>
+<li>Included is a config.bmp region.ini and genesus.SC4M so you can test import of full elevation. The region is from my CJ <a href=http://www.simtropolis.com/forum/messageview.cfm?catid=36&threadid=75404>Genesus</a> and I used the columbus mod, so waterLevel is 135. <br>
+<span class=code>
+<br>
+To test it:
+<br>
+Create a new folder in your My documents\simcity 4\regions\ and copy the region.ini and config.bmp in it.
+<br>
+Launch SC4Terraformer and load that region, and specify 135 as waterlevel
+<br>
+Import the Genesus.SC4M
+<br>
+The region should be ok.
+<br>
+<br>
+</span>
+<li>bug on the mouse cursor when edge scrolling fix ( I hope )
+<li>Mayor mod is now 100% reliable ( thanks to Karybdis )
+<li>Import/Export of full elevation range
+<li>Ask you to save if not done and you're about to quit
+<li>visual clues about the lock/unlocked cities in the report 
+<li>Visual clue about the city you select in the report 
+<li>added unprotect all/protect trees/protect mayor mod buttons in the report
+<li>about box with hyperlink to simtropolis
+<li>statusbar added
+<li>On saving, warn you and let you decide what to do if you have terraformed a city with trees or building and not locked it
+</ul>
+</td>
+</tr>
+<tr><td><hr></td></tr>
+<tr><td bgcolor="#FEDCBA">v.05e</td></tr>
+<tr>
+<td>
+<ul>
+<li>Smooth/rough filter mathematicly correct
+<li>All zones tools way faster (except erode water )
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.05d</td></tr>
+<tr>
+<td>
+<ul>
+<li>More "professional" import dialog 
+<li>Installer 
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.05c</td></tr>
+<tr>
+<td>
+<ul>
+<li>savegame creation for unstarted city ( identified by the config.bmp ) working at 100%. No need for starting mayor mod anymore
+<li>mountain tools changed
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.05b</td></tr>
+<tr>
+<td>
+<ul>
+<li>Unlock/lock city works
+<li>Savegame mayor mod detection better ( but may be not 100% yet )
+<li>Savegame generation of unstarted city ( identified by the config.bmp ) working at 50%, see the note below
+</ul>
+</td>
+</tr>
+
+<tr><td bgcolor="#FEDCBA">v.05</td></tr>
+<tr>
+<td>
+<ul>
+<li>Tool bar UI with collapsing items and more grouping
+<li>Using a global will reset the actual zone tool ( avoid applying the zone tool when you clic on the 'ok' button of a dialog )
+<li>minimum elevation is 2m and maximum is 6000m, this is for future use of the compression algorithm to do an export/import feature of the full range elevation
+<li>ABOUT BOX added  
+<li>CITY LOCKER/UNLOCKER : 
+<span class=code>
+<br>
+When you load the city, the config.bmp ( reworked for better coloring ) and a list of existing savegame will be shown. You can lock or unlock those cities for terraforming  you can unlock/lock city after doing some terraformning ( in the Configuration Tools panel ). If you lock a city after having done some terraforming it will revert to the original elevation  using the zones tools on a lock city works until you release the mouse, all changes are discarded ( this is for speed reasons )
+<br>
+Unsaved city can not be locked (even if it is displayed as locked )
+<br>
+<br>
+</span>  
+<li>CITY SAVING
+<span class=code>
+<br>
+If you have locked the city, it won't save
+<br>
+If you haven't any savegame for a city tile ( identified by the config.bmp ), SC4Terraformer will create one
+<br>
+<br>
+</span>    
+<li>UNSAVED CITY   
+<span class=code>
+<br>
+Identified by the config.bmp
+<br>
+Unsaved cities are created 30m above the waterLevel
+<br>
+Unsaved cities can not be locked (even if it is displayed as locked )
+<br>
+SC4Terraformer will create a savegame for the city
+<br>
+IMPORTANT NOTE if you don't want to loose the newly created city, when in SC4 you should start a new city and save it ( go to mayor mod and save ). If you save before entering mayor mod, there will be lost of data in your region
+<br>
+<br>
+</span>  
+<li>YOU CAN NOW CREATE A NEW REGION FROM SC4TERRAFORMER :
+<ul>
+<li>Step 1 : 
+  Create a region folder in your MyDocuments\SimCity 4\Regions folder  and named the way you like
+<li>Step 2 : 
+  Copy a region.ini from any other existing region  
+<li>Step 3 :
+  Open the region.ini and change the name to the one you choose and save
+<li>Step 4 :
+  Create or get a config.bmp ( should be valid from SC4 point of view ) and save it in the new folder
+<li>Step 5 : 
+  Launch SC4Terraformer and select the new folder
+<li>Step 6 : 
+  Either import or not an image ( must have the correct size ie (64 * size of bmp) + 1 in width and height )
+<li>Step 7 : 
+  Do hand terraforming
+<li>Step 8 :
+  Save & quit
+<li>Step 9 :
+  Launch SC4 and load the new region
+<li>Step 10: -------------- IMPORTANT --------------
+  For each city tile, load it, go in mayor mod ( name your city uniquely ) and save    !!!!!
+<li>I havn't still discovered the good way to tell if a city is built or not ( that means have you entered in Mayor mod or not )
+SO CHECK CORRECTLY the lock/unlock dialog !
+</ul>
+</ul>
+</td>
+</tr>
+<tr><td><hr></td></tr>
+<tr><td bgcolor="#FEDCBA">v.04b</td></tr>
+<tr>
+<td>
+<ul>
+<li>zbuffer adapt to your GFX card capabilities
+<li>new shadow generation, now you can see small heights differences
+<li>Import image : now you can import image as in SC4, this is a beta feature, choose your image (must be the same size as the original region) but can be other than greyscale. 
+<pre>You will be prompt for scaling factor, that is how much 1 unit in the greyscale image represent in SC4 
+2.4 is the original maxis value, and 3 is the one use by CD columbus mod.
+Note that I will work on a more complete import dialog for future release.</pre>
+</ul>
+</td>
+</tr>
+<tr><td bgcolor="#FEDCBA">v.04</td></tr>
+<tr>
+<td>
+<ul>
+<li>New terraforming tools :
+<ul>
+<li>Erode terrain/erode terran bis : water erosion of the terran, jsut tell me which one you prefer . WARN ERODING IS A LONG PROCESS
+<li>Rough : opposite of smoothing
+<li>Water erode : erode only in specified zone 
+</ul>
+<li>The Smooth tool is now correctly working
+<li>The Hill tool make a smoother hill, and the amount of height added is relative to the radius
+<li>The Mountain tool generate mountains that look like what the sc4 counterpart do, and the amount of height added is relative to the radius
+<li>DX compatibilities, fallback rendering pipeline
+<li>Shadows less dark
+</ul>
+</td>
+</tr>
+<tr><td><hr></td></tr>
+<tr><td bgcolor="#FEDCBA">v.03c</td></tr>
+<tr>
+<td>
+<ul>
+<li>Some global tools:
+<ul>
+<li>Egalize = smooth the whole region
+<li>WaterLevel = change the water level, usefull for the makeharbor
+<li>RaiseTerran = raise the whole region, you will be prompt for the raise amount
+<li>LowerTerran = lower the whole region, you will be prompt for the lower amount
+</ul>
+<li>Some zone tools:
+<ul>
+<li>for zone tools you have 2 sliders for adjusting the strength and radius of the effect, and you can choose between square or rounded shape
+<li>Flatten = make the zone the same height at the centered pixel ( the one that's red when you start clicking )
+<li>Smooth = smooth the zone :)
+<li>Make hills = raise the zone in a hilly way
+<li>Make mountains = raise the zone in a mountain way
+<li>Make valley = dig the zone
+<li>Make harbor = flatten the land 1m above the water level so you can easily plop waterfront etc..
+</ul>
+<li>The behavior of tools are not exactly the same as SC4, I need to work on this ( or not if everybody is ok with those behaviors )
+<li>And now pressing CTRL-S you can save your creation. But be warned ! <b>You must have a backup copy of the region in case something weird happens. Moreover, if you have  trees or already built cities in the region, it may corrupt the region, as terraforming an already built city may result in unpredictable behavior in SC4. </b>
+<li>a generic shader, so old card may not display only blue screen.
+<li>more debug information, in case there is freeze or bug
+<li>edge scrolling do not apply if the mouse is not in the window
+<li>faster shadow texture generation
+<li>exit if you're not on terran works
+</ul>
+</td>
+</tr>
+
+</table>
+<hr>
+<a name="credits">
+<H1>Credits</H1>
+Code : <b>Wouanagaine</b><br>
+Thanks to <b>Ynterboy</b>, <b>CDB</b>, <b>jplumbley</b>, <b>prince_of_sims</b>, <b>SC4Boy</b> and <b>Romaq</b> for testing and to others for feedback and support<br>
+Thanks to <b>trueplaya8892</b> for the icon<br>
+Thanks to <b>SC4BOY</b> for the Color Guide and <b>prince_of_sims</b> for the ReadMe.<br>
+The tool can't have be done if <b>iLive</b> had not released the source code of the <b>Reader tool</b>
+<br>
+The tool can't have be done without <a href="http://www.python.org" target="_blank">Python</a>, <a href="http://www.wxWidgets.org" target="_blank">wxWidgets</a>, <a href="http://www.pythonware.com/products/pil/" target="_blank">The Python Image Library</a>, <a href="http://numeric.scipy.org/" target="_blank">Numeric python</a>
+<br>
+The installer can't have be done without <a href="http://nsis.sourceforge.net/Main_Page" target="_blank">NSIS</a>
+</body>
+</html>
