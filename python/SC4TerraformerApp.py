@@ -603,7 +603,7 @@ class SC4Frame(wx.Frame):
         x = config.mainwindow["x"]
         y = config.mainwindow["y"]
         self.MoveXY( x, y )        
-        self.panel = wx.Panel(self, -1, style=wx.WANTS_CHARS)
+        self.panel = wx.Panel(self, -1)
         self.unsavedWorks = False
 
         try:
@@ -653,7 +653,7 @@ class SC4Frame(wx.Frame):
 
         self.sb = wx.StatusBar( self, -1, style = 0 )
         self.sb.SetFieldsCount( 3 )
-        self.sb.SetStatusText( "SC4Terraformer V1.0d", 0 )
+        self.sb.SetStatusText( "SC4Terraformer V1.1", 0 )
         self.sb.SetStatusWidths( [ -1, -2, -2 ] )
         self.sb.SetStatusStyles( [wx.SB_RAISED,wx.SB_RAISED,wx.SB_RAISED] )
         self.SetStatusBar( self.sb )
@@ -841,9 +841,17 @@ class SC4Frame(wx.Frame):
                   s = s[4:]
                   htmlText = s[:lenHtml]
                   s = s[lenHtml:]
+                  try:
+                    os.chdir( os.path.split( paths )[0] )
+                  except:
+                    pass
                   authorNotes = AuthorBox(self,htmlText)
                   authorNotes.ShowModal()
                   authorNotes.Destroy()
+                  try:
+                    os.chdir( sys.path[0] )
+                  except:
+                    pass
                   temp = s[:4]
                   print temp
                 if temp == 'SC4C':
@@ -1307,7 +1315,7 @@ class SC4Frame(wx.Frame):
       self.timer.Stop()
       self.drawHeight = float( event.GetString() )
       if self.actualTool:
-        if self.actualTool.__class__ == terraTools.DrawTool or self.actualTool.__class__ == terraTools.TalusErode:
+        if self.actualTool.__class__ == terraTools.DrawTool:
           self.actualTool.ChangeLevel( self.drawHeight )
           self.sb.SetStatusText( self.actualTool.name+" radius : %d / strength : %d"%(self.toolRadius,self.toolStrength), 1 )
       self.SetFocus()
@@ -1443,7 +1451,7 @@ class SC4Frame(wx.Frame):
 
     def OnSetTalusErode( self, event ):
       self.timer.Stop()
-      self.actualTool = terraTools.TalusErode( self.drawHeight )
+      self.actualTool = terraTools.TalusErode()
       self.sb.SetStatusText( self.actualTool.name+" radius : %d / strength : %d"%(self.toolRadius,self.toolStrength), 1 )
       self.SetFocus()
       self.panel.SetFocus()
@@ -1529,13 +1537,16 @@ class SC4Frame(wx.Frame):
             s += struct.pack( "L",self.region.height.shape[1] ) 
             s += struct.pack( "f",mini )
             if htmlFileName is not None:
-              s += "SC4N" # author notes
-              filehtml = open( htmlFileName )
-              lines = filehtml.readlines()
-              line = "\n".join( lines )
-              filehtml.close()
-              s += struct.pack( "L", len( line ) )
-              s += line
+              try:
+                filehtml = open( htmlFileName )
+                lines = filehtml.readlines()
+                line = "\n".join( lines )
+                filehtml.close()
+                s += "SC4N" # author notes
+                s += struct.pack( "L", len( line ) )
+                s += line
+              except:
+                pass
             s += "SC4C" # config.bmp included
             s += struct.pack( "L", self.region.config.size[0] )
             s += struct.pack( "L", self.region.config.size[1] )
@@ -1739,9 +1750,17 @@ class SC4Frame(wx.Frame):
                       s = s[4:]
                       htmlText = s[:lenHtml]
                       s = s[lenHtml:]
+                      try:
+                        os.chdir( os.path.split( paths )[0] )
+                      except:
+                        pass
                       authorNotes = AuthorBox(self,htmlText)
                       authorNotes.ShowModal()
                       authorNotes.Destroy()
+                      try:
+                        os.chdir( sys.path[0] )
+                      except:
+                        pass
                       temp = s[:4]
                       print temp
                     if temp == 'SC4C':
@@ -2026,7 +2045,6 @@ class SC4Frame(wx.Frame):
       
     def OnKeyUp(self, evt):
       keycode = evt.GetKeyCode()
-      print "up",keycode
       if keycode==71:
         dxEngine.turnGrid()
       if keycode == wx.WXK_NUMPAD_ADD or keycode == wx.WXK_NUMPAD_SUBTRACT:
@@ -2038,7 +2056,6 @@ class SC4Frame(wx.Frame):
         
     def OnKeyDown(self, evt):
         keycode = evt.GetKeyCode()
-        print "down",keycode
           
         if keycode == wx.WXK_NUMPAD_ADD:
           self.up = -1
@@ -2341,7 +2358,7 @@ class SplashScreen(wx.SplashScreen):
         bmp = wx.Image("splash.jpg",wx.BITMAP_TYPE_JPEG).ConvertToBitmap()
         wx.SplashScreen.__init__(self, bmp,
                                  wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT,
-                                 1000, None, -1)
+                                 2000, None, -1)
         self.Bind(wx.EVT_CLOSE, self.OnClose)
 
     def OnClose(self, evt):
@@ -2352,7 +2369,7 @@ class SplashScreen(wx.SplashScreen):
         self.ShowMain()
 
     def ShowMain(self):
-        frame = SC4Frame(None,-1, "SC4Terraformer")
+        frame = SC4Frame(None,-1, "SC4Terraformer NHP Version")
         frame.Show()
         
 

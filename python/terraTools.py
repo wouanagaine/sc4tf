@@ -258,17 +258,9 @@ class WeatherErode( TerraToolZone ):
     return rough
 
 class TalusErode( TerraToolZone ):
-#  def __init__( self):
-#    TerraToolZone.__init__( self )
-#    self.name = "Talus Erode"    
-
-  def __init__( self, level ):
+  def __init__( self):
     TerraToolZone.__init__( self )
-    self.name = "Talus Erode max height %.02fm"%(level)
-    self.level = level
-  def ChangeLevel( self, level ):
-    self.name = "Talus Erode max height %.02fm"%(level)
-    self.level = level
+    self.name = "Talus Erode"    
 
   def apply( self, bSquared, radius, strength, heights ):       
     mask = Numeric.zeros( heights.shape, Numeric.Float32 )
@@ -278,7 +270,7 @@ class TalusErode( TerraToolZone ):
         if bSquared or dist < float(radius):
           mask[y+radius,x+radius] = 1.
 
-    rawHeight = tools3D.weatherErode( self.level, 0.05*strength, 20, heights.shape, heights.tostring() )
+    rawHeight = tools3D.weatherErode( 10, 0.05*strength, 20, heights.shape, heights.tostring() )
     ret = Numeric.reshape( Numeric.fromstring( rawHeight, Numeric.Float32 ), heights.shape )
     ret -= heights
     ret *= mask

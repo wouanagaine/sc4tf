@@ -32,6 +32,13 @@ class Configurator( object ):
                 self.sliders[ v[0] ] = int(v[1] )
         else:
             self.sliders = { "x":200,"y":674 }
+            
+        if self.overview['x'] > 1600 or self.overview['x'] < -500 :            
+          self.overview = { "x":22,"y":22,"width":513,"height":513 }
+        if self.mainwindow['x'] > 1600 or self.mainwindow['x'] < -500 :            
+          self.mainwindow = { "x":200,"y":0 }
+        if self.sliders['x'] > 1600 or self.sliders['x'] < -500 :            
+          self.sliders = { "x":200,"y":0 }
                             
 
     def save( self ):

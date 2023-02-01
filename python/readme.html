@@ -92,8 +92,8 @@ margin-right:50px;
 <img src="sc4.jpg" border=0 width=777 height=596>
 <br>
 <div style="position:absolute;top:530px;left:15;width:100%">
-Version <b>v1.0c</b><br>
-<font class=warning>This is the Final Version</font>
+Version <b>v1.1</b><br>
+<font class=warning>This is the NHP Version</font>
 </div>
 </center>
 <hr>
@@ -127,7 +127,8 @@ Version <b>v1.0c</b><br>
 &nbsp;It can be found <a href="http://www.microsoft.com/windows/directx/default.mspx" target="_blank">here</a> or <a href="http://www.softwarepatch.com/windows/directx.html" target="_blank">here</a>
 <br>
 <br>
-You will need to run the DXSetup.exe once you've downloaded it
+By downloading DX, you will have an exe in your HD, run it, it will ask you for a destination folder, enter c:\dx
+You will need to run the DXSetup.exe from c:\dx<br>
 <br>
 You will need to update if you see a <b>DirectX can't be loaded</b> message box
 <br>
@@ -197,9 +198,10 @@ they should be typically find in your <b>C:\WINDOWS\system32\</b>
 <li>Config.bmp checking
 <li>Overview aka radar like view
 <li>3D & 2D screenshots
-<li>Export of full range ( 0-6000m ) elevation within 0.1m precision in SC4M format and 16bit greyscale png format
+<li>Export of full range ( 0-6000m ) elevation within 0.1m precision in SC4M format and 16bit greyscale png format and RGB format
 <li>Import of SC4M and 16bit greyscale png
-<li>Import of greyscale or RGB picture ( 8bit channel PNG, BMP, JPEG )
+<li>Import of greyscale picture ( 8bit channel PNG, BMP, JPEG )
+<li>Import of RGB picture ( 8bit channel PNG, BMP, JPEG )
 <li>Import allow resizing/fitting of the image to match the region size ( for image file only )
 <li>Import of TER files ( from terragen or worldmachine )
 <li>External tool to generate image from contour lines images ( ConvertIsoclines.exe )
@@ -419,17 +421,11 @@ I do not make any particular suggestions, but a lot of them are from supporters 
 <li>Path tool
 <li>River bed tool
 <li>Slope tool
-<li><s>Crater tool</s>
-<li><s>Cliff tool</s>
-<li><s>Better mountain tool</s>
-<li>Open source the code
+<li><s>Open source the code</s>
 <li>Reconfigure config.bmp
 <li>DEM import
-<li><s>Export 2D Shaded image</s>
 <li>Trees ???
-<li><s>Create region option</s>
 <li>Export region view as Region Census
-<li><s>Overhead mode</s>
 <li>Config bmp maker/painter
 </ul>
 </td></tr>
@@ -485,6 +481,25 @@ This html ( the source code of it ) will be included into the SC4M, as the confi
 <a name="changes"/>
 <H1>Changelog</H1>
 <table width="100%" style="width:100%">
+
+<tr><td bgcolor="#FEDCBA">v1.1</td></tr>
+<tr>
+<td>
+<ul>
+<li>Compressor tool, that will allow you to stretch/shrink the elevation of the whole region ( credit to <b>beskhu3epnm</b> )
+<ul>
+    <li>  when the dialog shows up, the min and max value of the actual terrain are shown in the edit box
+    <li> enter your new numbers ( min < max )
+    <li> if you leave the 'unchanged value' to 0 then the full range will be mapped to the new one using the same scaling factor
+    <li> if you use another value ( should be between min & max ) the [min-pivot] will be map to [newmin-pivot] and [pivot-max] will be map to [ pivot-newmax]
+    <li> this create some nice feature if you want to scale only above water terran ( enter 250 in the 'unchanged value, leave the min, just change your max ) 
+</ul>
+<li>New vertex shader that will display contour lines, only work for those who have a Vertex Shader 1.1 compatible GFX card
+<li>RGB colored scheme import/export ( credit to <b>Moganite</b> )
+<li>A raise & lower zone tool in Brush tools ( credit to JPlumbley )
+</ul>
+</td>
+</tr>
 
 <tr><td bgcolor="#FEDCBA">v1.0c</td></tr>
 <tr>
@@ -949,7 +964,8 @@ Note that I will work on a more complete import dialog for future release.</pre>
 <a name="credits">
 <H1>Credits</H1>
 Code : <b>Wouanagaine</b><br>
-Thanks to <b>Ynterboy</b>, <b>CDB</b>, <b>jplumbley</b>, <b>prince_of_sims</b>, <b>SC4Boy</b> and <b>Romaq</b> for testing and to others for feedback and support<br>
+Thanks <b>NHP team members</b> for giving me new ideas and enhancements for v1.1<br>
+Thanks to <b>NHP team</b>, <b>Ynterboy</b>, <b>CDB</b>, <b>jplumbley</b>, <b>prince_of_sims</b>, <b>SC4Boy</b> and <b>Romaq</b> for testing and to others for feedback and support<br>
 Thanks to <b>trueplaya8892</b> for the icon<br>
 Thanks to <b>SC4BOY</b> for the Color Guide and <b>prince_of_sims</b> for the ReadMe.<br>
 The tool can't have be done if <b>iLive</b> had not released the source code of the <b>Reader tool</b>
